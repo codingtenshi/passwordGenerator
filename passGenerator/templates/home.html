@@ -1,37 +1,33 @@
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
+{% extends 'base.html' %}
 
 
-<body>
-    <h1>Formularz - Generator hasła</h1>
-    <form action="{% url 'password %'}" method="post">
-        <label for="length">Długość hasła</label>
-        <select id="length" name="length">
-            <option value="6">6 znaków</option>
-            <option value="8">8 znaków</option>
-            <option value="10">10 znaków</option>
-            <option value="12">12 znaków</option>
-        </select>
-        <br>
-        <label? for="id_big">Użyj wielkich liter</label>
-        <input type="checkbox" id="id_big" name="big">
-        <br>
-        <label for="id_numbers">Użyj cyfr</label>
-        <input type="checkbox" id="id_numbers" name="numbers">
-        <br>
-        <label for="id_specials">Użyj znaków spcjalnych</label>
-        <input type="checkbox" id="id_specials" name="specials">
-        <br>
-        {% csrf_token %}
-        <button type="submit">Wygeneruj</button>
+{% block title %}
+       Form
+{% endblock title %}
+
+{% block content %}
+
+<h1>Formularz - Generator hasła</h1>
+<form action="{% url 'password' %}" method="post">
+    <label for="length">Długość hasła</label>
+    <select id="length" name="length">
+        <option value="6">6 znaków</option>
+        <option value="8">8 znaków</option>
+        <option value="10">10 znaków</option>
+        <option value="12">12 znaków</option>
+    </select>
+    <br>
+    <label for="id_big">Użyj wielkich liter</label>
+    <input type="checkbox" id="id_big" name="big">
+    <br>
+    <label for="id_numbers">Użyj cyfr</label>
+    <input type="checkbox" id="id_numbers" name="numbers">
+    <br>
+    <label for="id_specials">Użyj znaków specjalnych</label>
+    <input type="checkbox" id="id_specials" name="specials">
+    <br>
+    {% csrf_token %}
+    <button type="submit">Wygeneruj hasło</button>
     </form>
 
-</body>
-
-</html>
+    {% endblock content %}
