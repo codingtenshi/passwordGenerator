@@ -10,7 +10,7 @@
 
 <body>
     <h1>Formularz - Generator hasła</h1>
-    <form>
+    <form action="{% url 'password %'}" method="post">
         <label for="length">Długość hasła</label>
         <select id="length" name="length">
             <option value="6">6 znaków</option>
@@ -20,14 +20,15 @@
         </select>
         <br>
         <label? for="id_big">Użyj wielkich liter</label>
-        <input type="checkbox" id="id_big">
+        <input type="checkbox" id="id_big" name="big">
         <br>
         <label for="id_numbers">Użyj cyfr</label>
-        <input type="checkbox" id="id_numbers">
+        <input type="checkbox" id="id_numbers" name="numbers">
         <br>
         <label for="id_specials">Użyj znaków spcjalnych</label>
-        <input type="checkbox" id="id_specials">
+        <input type="checkbox" id="id_specials" name="specials">
         <br>
+        {% csrf_token %}
         <button type="submit">Wygeneruj</button>
     </form>
 
